@@ -17,8 +17,8 @@ get_header (); ?>
 	<?php wcr_share_buttons(); ?> <!-- Social media share buttons social-media-sidebar.php -->
 
 	<section id="events">
-		<div class="container d-flex">
-			<div class="col-lg-8 d-inline-block">
+		<div class="container"><!-- d-flex -->
+			<div class="col-lg-8"><!-- d-inline-block -->
 				<h2 class="display-3">Uzsiemimu tvarkarastis</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam modi ratione ut nisi tempora quibusdam autem est numquam qui culpa eos eum commodi recusandae nihil quisquam magnam, perferendis, voluptate neque.</p>
 
@@ -36,7 +36,7 @@ get_header (); ?>
 	                    <?php the_content(); ?>
 
 	                    <p>
-							<small>Paskelbta: <?php the_time('m-j, Y'); ?> | <?php the_time('g:i a'); ?> | <?php the_category(' '); ?></small>
+							<small>Paskelbta: <?php the_time('m-j, Y'); ?> | <?php the_time('g:i a'); ?> <!-- | <?php //the_category(' '); ?> --></small>
 
 							<hr>
 	                	</p>
@@ -51,11 +51,11 @@ get_header (); ?>
 
 			</div>
 
-			<div class="col-lg-4 d-inline-block">
+			<div class="col-lg-4"><!-- d-inline-block -->
 				<h2>Prisijunk šiandien</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<button type="button" class="btn btn-lg btn-primary" disabled>Užsirašyk dabar!</button>
+				<button type="button" class="btn btn-lg btn-primary disabled">Užsirašyk dabar!</button>
 				
 				<div class="search-form-container">
 					<h4>Paieška</h4>

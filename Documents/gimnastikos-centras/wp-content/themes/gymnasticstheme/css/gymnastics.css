@@ -3,8 +3,8 @@ body {
 	padding: 0;
 	margin: 0;
 	color: #333;
-	font: sans-serif;
-	height: 100%;
+	/*font: sans-serif;*/
+  font-family: roboto;
 }
 
 body {
@@ -12,6 +12,7 @@ body {
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+  height: 100%;
 }
 
 /*
@@ -24,19 +25,19 @@ HEADER START
 	background: no-repeat;
 	background-size: cover;
 	background-position: center;
-  	color: #FEF9E7;
-  	text-align: center;
-  	height: 250px;
+  color: #FEF9E7;
+  text-align: center;
+  height: 250px;
 }
 #cover .image{
-    width: 100%;
+  width: 100%;
 	height: 100%;
-    object-fit: cover;
+  object-fit: cover;
 }
 
 #cover h1{
 	position: relative;
-    top: -5em;
+  top: -5em;
 }
 
 #cover #cover-caption .container .col-sm-12 .btn{
@@ -45,6 +46,13 @@ HEADER START
 	color: whitesmoke;
 	border-color: antiquewhite;
 	text-align: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 8px;
+}
+
+#cover #cover-caption .container .col-sm-12 .btn:hover {
+  background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
 }
 
 
@@ -70,7 +78,7 @@ SOCIAL SITES START
   width: 200px;
   height: 220px;
   position: fixed;
-  margin-top: 30px;
+  margin-top: 13px;
   padding: 0;
   perspective: 1000px;
   list-style-type: none;
@@ -82,8 +90,7 @@ SOCIAL SITES START
   width: 40px;
   background: #222;
   border-bottom: 1px solid #333;
-  font: normal normal normal 16px/20px 
-  'FontAwesome', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font: normal normal normal 16px/20px 'FontAwesome', 'Source Sans Pro', Helvetica, Arial, sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   padding: 10px;
@@ -190,9 +197,20 @@ APIE MUS START
 	padding-bottom: 2rem;
 }
 
+/*#feature-one{
+  background:url(http://localhost/gimnastikos-centras/wp-content/themes/gymnasticstheme/pictures/rhythm.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  height:600px;
+  z-index: -1;
+}*/
+
+
 #feature-one .container .feature-row .feature-content {
 	padding: 5rem 0;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 #feature-one .container .feature-row {
@@ -202,6 +220,13 @@ APIE MUS START
 #feature-one .container .feature-row a {
 	margin: 0 auto;
 }
+
+#contacts .container h3,
+#multi-gallery .container h3,
+#feature-one .container .feature-row h3 {
+  margin: 0 .2em;
+}
+
 
 /*
 ===============================================
@@ -213,16 +238,55 @@ APIE MUS END
 
 
 
-
-
-
 /*
 ===============================================
 PAGRINDINIO PSL GALERIJA START
 ===============================================
 */
 
+#multi-gallery {
+  background:url(http://localhost/gimnastikos-centras/wp-content/themes/gymnasticstheme/pictures/gymnast.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 7%;
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  /*height:600px;*/
+  z-index: -1;
+}
+
+
 /*Grid row cards START*/
+#multi-gallery .container .col-md-12 .col-md-6 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+#multi-gallery .container a {
+  text-decoration: none;
+}
+
+
+#multi-gallery .container .to-gallery {
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2); */
+  box-shadow: 0 0 20px #eee;
+  border-radius: 50px;
+  display: block;
+  background-image: linear-gradient(to right, #16A085 0%, #F4D03F 51%, #16A085 100%);
+}
+
+#multi-gallery .container .to-gallery:hover { 
+  background-position: right center; 
+}
+
 #multi-gallery .container .gallery {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -270,59 +334,117 @@ PAGRINDINIO PSL GALERIJA START
 	height: 400px;
 }
 
-
-
-
-
-#gallery .pics {
+/*#gallery .pics {
   overflow: hidden;
   width: 100%;
   height: auto;
+}*/
+
+
+/* turns off image flickering
+ -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);*/
+
+
+/*#gallery .pics .img-fluid {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  /*-webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
 }
 
-#gallery .pics .img-fluid {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  -moz-transition: -moz-transform 0.4s ease;
-  -o-transition: -o-transform 0.4s ease;
-  transition: transform 0.4s ease;
+#gallery .pics .img-fluid::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #gallery .pics .img-fluid:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  -webkit-transform: scale(1.25, 1.25);
+  transform: scale(1.25, 1.25);
+}
+
+#gallery .pics .img-fluid:hover::after {
+    opacity: 1;
+}*/
+
+
+#gallery .row {
+  display: flex;
+}
+
+#gallery .row .image {
+  margin: 1em;
+}
+
+#gallery .row a img {
+  transition: 0.5s all;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+}  
+
+#gallery .row a img:hover {
   transform: scale(1.1);
 }
 
+
+
+#video-carousel-example .carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
+
+/*page-main.php*/
+
+
+/*page-gallery.php*/
+#picture-gallery .container .row .row  .thumb .thumbnail .img-thumbnail {
+  max-height: 175px;
+  width: 100%;
+  transition: all .2s ease-in-out;
+}
+
+
+
+#picture-gallery .container .row .row .thumb .thumbnail .img-thumbnail:hover { 
+  transform: scale(1.1); 
+}
+/*page-gallery.php*/
 
 /*
 ===============================================
 PAGRINDINIO PSL GALERIJA END
 ===============================================
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -340,7 +462,7 @@ KONTAKTAI START
 	/* Always set the map height explicitly to define the size of the div 
 	 element that contains the map. */
 	position: relative;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	height: 20em;
   width: 22em;
 	top: 1em;
@@ -352,11 +474,21 @@ KONTAKTAI START
 }
 /*GOOGLE MAPS END*/
 
-
+/*#contacts{
+  background:url(http://localhost/gimnastikos-centras/wp-content/themes/gymnasticstheme/pictures/gymnast.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  height:600px;
+  z-index: -1;
+}*/
 
 #contacts .container .row .col-lg-7 .list-unstyled .block img {
-  max-width: 37em;
-  max-height: 18em;
+  max-width: 100%;
+  max-height: 30em;
+  margin: 2.5em auto;
+  border-radius: .25em;
 }
 
 /*
@@ -398,8 +530,14 @@ CONTACT-BAR START
 
 #contact-bar .body .modal .modal-dialog .modal-content {
   box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(#8CA6DB, #B993D6);
+  /*background: linear-gradient(#8CA6DB, #B993D6);*/
+  background: linear-gradient(#8CA6DB, #c36ff88f);
   opacity: 0.85;
+  border-color: #fff;
+}
+
+#contact-bar .body .modal .modal-dialog .modal-content .modal-header .close{
+  color: #fff;
 }
 
 #contact-bar .body .modal .modal-dialog .modal-content .modal-body {
@@ -427,6 +565,7 @@ CONTACT-BAR START
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     width: 90%;
+    text-transform: uppercase;
 } 
 
 #contact-bar .body .modal .modal-dialog .modal-content .modal-body .wpcf7-form-control:hover{
@@ -453,19 +592,26 @@ CONTACT-BAR START
   border-bottom: 1px solid rgba(255, 255, 255, 0.65);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
-  width: 440px;
+  width: 400px;
   border-radius: 7px;
 }
 
 #contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form p{
   text-align: center;
+  color: #fff;
 }
 
-/*#contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form p:nth-child(5){ 
-  margin: 0 0 0 0.4em;
-}*/
+#contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form .wpcf7-response-output {
+  margin: 1.5em 0.5em 1em;
+  z-index: 1;
+}
 
-#contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form p label {
+#contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form p:nth-child(5){ 
+  margin: 0 0 0 1em;
+}
+
+#contact-bar .body .modal .modal-dialog .modal-content .modal-body #wpcf7-f38-o1 .wpcf7-form p label{
+  color: #fff;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -477,9 +623,8 @@ CONTACT-BAR START
 }
 
 #wpcf7-f38-o1 .wpcf7-form .wpcf7-textarea{
-  height: 250px;
+  height: 200px;
 }
-
 
 /*
 ===============================================
@@ -496,7 +641,6 @@ CONTACT-BAR END
 FOOTER START
 ===============================================
 */
-
 #footer-main {
   background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
   background-blend-mode: multiply;
@@ -504,13 +648,28 @@ FOOTER START
 	font-size: 0.8rem;
 	padding: 2.5rem 0 0;
 }
+@media only screen and (min-width: 768px){
+    .arrow-up {
+    position: relative;
+    left: 95rem;
+    bottom: -16rem;
+  }
 
-.back-button .btn{
-    position: absolute;
+  .arrow-up .btn{
     color: whitesmoke;
     border-color: antiquewhite;
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+    
+  }
 
+  .arrow-up .btn:hover{
+    background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+  }
 }
+
+
 
 /*
 ===============================================
@@ -523,7 +682,7 @@ FOOTER END
 
 /*
 ===============================================
-gallery.html galerija START
+gallery.html, page-gallery.php galerija START
 ===============================================
 */
 
@@ -532,17 +691,41 @@ gallery.html galerija START
   box-shadow: none !important;
 }
 
-#image-gallery .modal-footer{
+#image-gallery .modal-footer {
   display: block;
 }
 
-.thumb{
+.thumb {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
 #image-gallery-image {
 	margin-left: 0;
+}
+
+#image-gallery .modal-dialog .modal-content {
+  top: 7em;
+}
+
+#image-gallery .modal-dialog .modal-content .modal-body {
+  padding: 0;
+}
+
+#image-gallery .modal-dialog .modal-content .modal-body img {
+  max-height: 30em;
+  padding: 0;
+}
+
+#image-gallery .modal-dialog .modal-content .modal-body .close {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 1.5em;
+  left: 30em;
+  border: 1px solid #ccc;
+  width: 25px;
+  border-radius: .25rem;
 }
 
 /*
@@ -575,6 +758,24 @@ gallery.html galerija END
 page-events.php
 ===============================================
 */
+
+#events .container {
+  display: flex;
+}
+
+#events .container .col-lg-8,
+#events .container .col-lg-4{
+  display: inline-block;
+}
+
 #events .container .col-lg-4 .search-form-container {
   margin: 1em 0;
 }
+
+
+
+
+/*header.php navbar item turn off*/
+/*.isjungtas{
+  display: none;
+}*/

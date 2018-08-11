@@ -125,4 +125,18 @@ function wcr_share_buttons() {
 	==========================================
 */
 
+/*
+	==========================================
+	 Smooth Scrollspy Scrolling Effect START
+	==========================================
+*/
+
+//wp_enqueue_script( 'feature-one', get_template_directory_uri() . '/js/gymnastics.js', array( 'jquery' ), '', true );
+// header.php 'apie mus' ir gymnastics.js failai
+
+/*
+	==========================================
+	 Smooth Scrollspy Scrolling Effect START
+	==========================================
+*/
 ?>

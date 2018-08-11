@@ -1,6 +1,26 @@
 //javascript functions
 //$.noConflict(); //jquery $ sign doesn't conflict with other javascript functions
 
+
+/*Smooth Scrolling Effect START*/
+
+// jQuery(document).ready(function($){ 
+//   $(window).scroll(function(){ 
+//     if ($(this).scrollTop() < 200) { 
+//       $('#feature-one') .fadeOut(); } 
+//     else { $('#feature-one') .fadeIn(); } }); 
+//   $('#feature-one').on('click', function(){ 
+//     $('html, body').animate({scrollTop:0}, 'fast');
+//      return false; }); });
+
+/*Smooth Scrolling Effect END*/
+
+
+
+
+/*Smooth Scrolling Effect START*/
+
+
 /*grid row cards START*/
 $(function() {
     var selectedClass = "";
@@ -35,8 +55,6 @@ $('.pics').hover(function() {
 });
 
 /*index.html multi-gallery END*/
-
-
 
 
 

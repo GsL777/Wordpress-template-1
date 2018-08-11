@@ -1,14 +1,17 @@
-	
+
 
 	
 	<section id="contact-bar">
 		<!-- kontaktine forma su MODAL START -->
 		<!-- <div class="container"> -->
+
 		<div class="body">
 		 	<!-- <h2>Modal Example</h2> -->
 			<!-- Trigger the modal with a button -->
 			<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#contact">Susisiekite</button> -->
-			<a href="#" data-toggle="modal" data-target="#contact" class="button1"><i class="fa fa-envelope"></i>Susisiekite</a>
+			
+				<a href="#" data-toggle="modal" data-target="#contact" class="button1"><i class="fa fa-envelope"></i>Susisiekite</a>
+				
 			<!-- Modal -->
 			<div class="modal fade" id="contact" role="dialog">
 			    <div class="modal-dialog">
@@ -31,34 +34,14 @@
 				</div>
 			</div>
 
-<!-- 			 <div class='bold-line'></div>
-			<div class='container'>
-			  <div class='window'>
-			    <div class='overlay'></div>
-			    <div class='content'>
-			      <div class='welcome'>Hello There!</div>
-			      <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>
-			      <div class='input-fields'>
-			        <input type='text' placeholder='Username' class='input-line full-width'></input>
-			        <input type='email' placeholder='Email' class='input-line full-width'></input>
-			        <input type='password' placeholder='Password' class='input-line full-width'></input>
-
-			      </div>
-			      <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div>
-			      <div><button class='ghost-round full-width'>Create Account</button></div>
-			    </div>
-			  </div>
-			</div>  -->
-
-
-
-
-
-
-		</div>
+		</div></a>
 		<!-- </div> --> <!-- container end -->
 		<!-- kontaktine forma su MODAL END -->
 	</section>
+
+
+
+
 
 	<footer id="footer-main">
 		<div class="container">
@@ -90,12 +73,15 @@
 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  </p>
 				</div>
+
 			</div>
 
 			<div class="col-lg-12">
 				<p class="text-center mb-0">Visos teisės saugomos &copy; Gimnastikos centras 2018</p>
 			</div>
 		</div>
+
+		
 
 	</footer>
 	

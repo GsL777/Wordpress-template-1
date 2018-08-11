@@ -12,23 +12,25 @@
 
 <!-- Makes inside pages navbar titles disappear START -->
 	<!-- OPTIMIZUOTI! -->
-	<?php if (is_page( 'events' ) ): ?>
+	<!-- <?php //if (is_page( 'events' ) ): ?>
 		<style>
 			.nav-item:nth-child(2),
 			.nav-item:nth-child(3) { 
 				display: none;
 			}
 		</style>
-	<?php endif; ?>
+	<?php //endif; ?>
 
-	<?php if (is_page( 'gallery' ) ): ?>
+	<?php //if (is_page( 'gallery' ) ): ?>
 		<style>
 			.nav-item:nth-child(2),
 			.nav-item:nth-child(3) { 
 				display: none;
 			}
 		</style>
-	<?php endif; ?>
+	<?php //endif; ?> -->
+
+	<!-- padaryti, kad neisijungtu, o kad nuvestu i home page ir nuvestu prie ivykiu arba galerijos -->
 
 <!-- Makes inside pages navbar titles disappear END -->
 	
@@ -46,10 +48,20 @@
 						<a class="nav-link" href="events">Įvykiai</a> <!-- vidiniai puslapiai -->
 				    </li>
 				    <li class="nav-item mr-3">
-						<a class="nav-link" href="#contacts">Kontaktai</a>
+						<!-- <a class="nav-link" href="#feature-one">Apie mus</a> -->
+						<a class="<?php
+
+							if (is_page( 'events' ) ) {
+							echo 'isjungtas nav-link';
+							} else {
+							echo 'ijungtas nav-link';
+							}
+
+						?>" href="<?php echo home_url(); ?>#feature-one">Apie mus</a>
 				    </li>
 				    <li class="nav-item mr-3">
-						<a class="nav-link" href="#feature-one">Apie mus</a>
+						<!-- <a class="nav-link" href="#contacts">Kontaktai</a> -->
+						<a class="nav-link" href="<?php echo home_url(); ?>#contacts">Kontaktai</a>
 				    </li>
 				    <li class="nav-item mr-5">
 						<a class="nav-link" href="gallery">Galerija</a><!-- vidiniai puslapiai -->
@@ -59,3 +71,8 @@
 			</div>
 
 		</nav>
+
+
+<!-- <button onclick="myFunction()" ><a class="nav-link" href="<?php echo home_url(); ?>#feature-one">Apie mus</a></button> -->
+
+
