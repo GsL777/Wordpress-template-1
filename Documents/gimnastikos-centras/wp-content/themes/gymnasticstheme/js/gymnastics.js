@@ -16,19 +16,103 @@
 /*Smooth Scrolling Effect END*/
 
 
+/*vertical mousewheel smooth scrolling START*/
+if (window.addEventListener) window.addEventListener('MouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+function wheel(event) {
+    var delta = 0;
+    if (event.wheelDelta) delta = event.wheelDelta / 120;
+    else if (event.detail) delta = -event.detail / 3;
+
+    handle(delta);
+    if (event.preventDefault) event.preventDefault();
+    event.returnValue = false;
+}
+
+var goUp = true;
+var end = null;
+var interval = null;
+
+function handle(delta) {
+  var animationInterval = 5; //lower is faster
+  var scrollSpeed = 10; //lower is faster
+
+  if (end == null) {
+    end = $(window).scrollTop();
+  }
+  end -= 20 * delta;
+  goUp = delta > 0;
+
+  if (interval == null) {
+    interval = setInterval(function () {
+      var scrollTop = $(window).scrollTop();
+      var step = Math.round((end - scrollTop) / scrollSpeed);
+      if (scrollTop <= 0 || 
+          scrollTop >= $(window).prop("scrollHeight") - $(window).height() ||
+          goUp && step > -1 || 
+          !goUp && step < 1 ) {
+        clearInterval(interval);
+        interval = null;
+        end = null;
+      }
+      $(window).scrollTop(scrollTop + step );
+    }, animationInterval);
+  }
+}
+/*vertical mousewheel smooth scrolling END*/
 
 
 /*Smooth Scrolling Effect START*/
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
 
-
-
-
-
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+    });
+  });
 /*Smooth Scrolling Effect END*/
 
 
+/*sipwer slides gallery START*/
+// jQuery(document).ready(function($){
+//   var swiper = new Swiper('.swiper-container', {
+//     slidesPerView: 1,
+//     spaceBetween: 0,
+//     pagination: {
+//       el: '.swiper-pagination',
+//       clickable: true,
+//     },
+//     autoplay: {
+//       delay: 3000,
+//       disableOnInteraction: false,
+//     },
+//   });
+// });
+
+jQuery(document).ready(function($){
+var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+});
+/*sipwer slides gallery END*/
 
 
+ $(function(){//Remove inline css of an HTML elements
+    $('* [style]').removeAttr('style');
+ });
 
 
 /*grid row cards START*/
@@ -67,23 +151,6 @@ $('.pics').hover(function() {
 /*index.html multi-gallery END*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*#id map GOOGLE MAPS START*/
 function initMap() {
 	var location = {lat: 54.892813, lng: 23.916402};
@@ -100,10 +167,7 @@ function initMap() {
 //*#id map GOOGLE MAPS END*/
 
 
-
-
-
-/*gallery.html picture gallery START*/
+/*page-gallery.php picture gallery START*/
 
 let modalId = $('#image-gallery');
 
@@ -199,3 +263,57 @@ $(document).keydown(function (e) {
 
 
 /*gallery.html picture gallery END*/
+
+
+
+/* AJAX functions page-events.php START */
+
+$(".load-more-posts-button:not(.loading)").on('click', function(){
+
+        var that = $(this);
+        var page = $(this).data('page');
+        var max_page = $(this).data('max-num-pages');
+        var newPage = page+1;
+        var ajaxurl = $(this).data('url');
+        that.addClass('loading');
+        if(window.location.pathname == "/lksb/en/"){
+            that.find('.button-text').text('Loading');
+        }else{
+            that.find('.button-text').text('Kraunama');
+        }
+        that.find('.fa-spinner').addClass("fa-spin");
+        that.find('.loader').css('display','block');
+        
+        $.ajax({
+            url: ajaxurl,
+            type: 'post',
+            data: {
+                page: page,
+                action: 'load_more_articles_posts'
+            },
+            success: function(response){
+              
+               that.data('page', newPage);
+
+                $('.show-more-articles-posts').append(response);
+                that.removeClass('loading');
+                that.find('.fa-spinner').removeClass("fa-spin");
+                that.find('.button-text').text('Rodyti daugiau');
+                $('.articles-holder').addClass('news-article');
+                console.log(newPage);
+                var k = newPage - 1;
+                if(max_page == k){
+                    that.find('.fa-spinner').css('display','none');
+                that.css('display','none');
+                that.find('.loader').css('display','none');
+                }
+            },
+            error: function(response){
+               console.log('KLAIDA');
+            }
+        })
+
+    });
+/* AJAX functions page-events.php END */
+
+

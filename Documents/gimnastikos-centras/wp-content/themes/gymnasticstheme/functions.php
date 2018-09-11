@@ -5,11 +5,15 @@ function awesome_script_enqueue() {
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.1.1', 'all');
 	wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/gymnastics.css', array(), '1.0.0', 'all');
 	wp_enqueue_style ('fontawesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.css', array(), '5.1.0', 'all');
+	wp_enqueue_style ('swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), '4.3.5', 'all');
+
 	
 	//js
 	wp_enqueue_script('jqueryjs', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.2.1', true);
 	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.1.1', true);
 	wp_enqueue_script('customjs', get_template_directory_uri() . '/js/gymnastics.js', array(), '1.0.0', true);
+	wp_enqueue_script('swiperjs', get_template_directory_uri() . '/js/swiper.min.js', array(), '4.3.5', true);
+
 }
 add_action('wp_enqueue_scripts', 'awesome_script_enqueue');
 
@@ -125,18 +129,81 @@ function wcr_share_buttons() {
 	==========================================
 */
 
-/*
-	==========================================
-	 Smooth Scrollspy Scrolling Effect START
-	==========================================
-*/
-
-//wp_enqueue_script( 'feature-one', get_template_directory_uri() . '/js/gymnastics.js', array( 'jquery' ), '', true );
-// header.php 'apie mus' ir gymnastics.js failai
 
 /*
 	==========================================
-	 Smooth Scrollspy Scrolling Effect START
+	 AJAX functions START
 	==========================================
 */
+
+/*
+* initial posts display
+ */
+
+/*function load_more_posts(){
+	$page = $_POST['page'];
+
+	$query = new WP_Query( array(
+			'post_type' => 'post',
+			'post_per_page' =>'6',
+			'paged' => $paged,
+		));
+	if ( $query-> have_posts() ) : 
+       	while ( $query-> have_posts() ) : $query->the_post();
+
+			get_template_part('content-eventsmain');
+
+	    endwhile;
+	endif; 
+  	wp_reset_postdata();
+	wp_die();
+}
+
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_priv_load_more_posts', 'load_more_posts');
+*/
+
+/*
+* load more script call back
+ */
+function load_more_articles_posts(){
+	$page = $_POST['page'];
+	//echo $page;
+
+	$query = new WP_Query( array(
+			'post_type' => 'post',
+			'category_name' => 'events',
+			'post_per_page' =>'6',
+			'paged' => $page
+		));
+
+	$total_pages = $the_query->max_num_pages;
+	print_r($total_pages);
+
+	if ( $query-> have_posts() ) : 
+        while ( $query-> have_posts() ) : $query->the_post();
+
+			get_template_part('contents/content', get_post_format() );
+
+		endwhile;
+    endif; 
+  	wp_die();
+  	wp_reset_postdata();
+}
+
+/*
+ * load more script ajax hooks
+ */
+add_action('wp_ajax_nopriv_load_more_articles_posts', 'load_more_articles_posts');
+add_action('wp_ajax_priv_load_more_articles_posts', 'load_more_articles_posts');
+
+/*
+	==========================================
+	 AJAX functions END
+	==========================================
+*/
+
+
+
+
 ?>
